@@ -5,19 +5,19 @@ CPPFLAGS	:= -Wall -Wextra -Werror -std=c++98
 CXX			:= c++
 RM			:= rm -rf
 
-SRC			:= main.cpp utils.cpp
+SRC			:= Bureaucrat.cpp main.cpp
 OBJ			:= $(SRC:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-    @$(CXX) $(CPPFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean:
-    $(RM) $(OBJ)
+	$(RM) $(OBJ)
 
 fclean: clean
-    $(RM) $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 
