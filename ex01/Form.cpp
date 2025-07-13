@@ -1,6 +1,6 @@
 #include "Form.hpp"
 
-Form::Form(const std::string& name, const int& signGrade, const int& executeGrade) : name(name), isSigned(false), signGrade(signGrade), executeGrade(executeGrade)
+Form::Form(const std::string& name, const int signGrade, const int executeGrade) : name(name), isSigned(false), signGrade(signGrade), executeGrade(executeGrade)
 {
     if (this->signGrade < 1 || this->executeGrade < 1)
         throw Form::GradeTooHighException();
@@ -10,32 +10,32 @@ Form::Form(const std::string& name, const int& signGrade, const int& executeGrad
 
 Form::~Form() {}
 
-Form::Form(const Form& other) : name(other.getName()), isSigned(other.getisSigned()), signGrade(other.getsignGrade()), executeGrade(other.getexecuteGrade()) {}
+Form::Form(const Form& other) : name(other.getName()), isSigned(other.getIsSigned()), signGrade(other.getSignGrade()), executeGrade(other.getExecuteGrade()) {}
 
 Form& Form::operator=(const Form& other)
 {
     if (this != &other)
-        this->isSigned = other.getisSigned();
+        this->isSigned = other.getIsSigned();
     
     return (*this);
 }
 
-const std::string Form::getName() const
+const std::string& Form::getName() const
 {
     return (this->name);
 }
 
-const int Form::getsignGrade() const
+const int Form::getSignGrade() const
 {
     return (this->signGrade);
 }
 
-const int Form::getsignGrade() const
+bool Form::getIsSigned() const
 {
     return (this->isSigned);
 }
 
-const int Form::getexecuteGrade() const
+const int Form::getExecuteGrade() const
 {
     return (this->executeGrade);
 }
@@ -52,7 +52,7 @@ const char* Form::GradeTooLowException::what() const throw()
 
 std::ostream& operator<<(std::ostream& os, const Form& rhs)
 {
-    os << rhs.getName() << ", sign grade " << rhs.getsignGrade() << ", execute grade " << rhs.getexecuteGrade() << ", signed: " << rhs.getisSigned();
+    os << rhs.getName() << ", sign grade " << rhs.getSignGrade() << ", execute grade " << rhs.getExecuteGrade() << ", signed: " << rhs.getIsSigned();
 
     return (os);
 }

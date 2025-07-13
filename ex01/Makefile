@@ -5,7 +5,7 @@ CPPFLAGS	:= -Wall -Wextra -Werror -std=c++98
 CXX			:= c++
 RM			:= rm -rf
 
-SRC			:= Bureaucrat.cpp main.cpp
+SRC			:= Bureaucrat.cpp Form.cpp main.cpp
 OBJ			:= $(SRC:.cpp=.o)
 
 all: $(NAME)

@@ -4,6 +4,8 @@
     #include <string>
     #include <ostream>
 
+    class Form;
+
     class Bureaucrat
     {
         private:
@@ -15,7 +17,7 @@
             Bureaucrat& operator=(const Bureaucrat& rhs);
             ~Bureaucrat();
 
-            const std::string getName() const;
+            const std::string& getName() const;
             int getGrade() const;
             
             void increment();
@@ -32,6 +34,8 @@
                 public:
                     virtual const char* what() const throw();
             };
+
+            void signForm(Form& form);
     };
 
     std::ostream& operator<<(std::ostream& os, const Bureaucrat& rhs);

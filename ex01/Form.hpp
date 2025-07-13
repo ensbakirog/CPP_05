@@ -4,7 +4,7 @@
 	#include <string>
 	#include <ostream>
 
-	#include "Bureaucrat.hpp"
+	class Bureaucrat;
 
 	class Form
 	{
@@ -19,10 +19,10 @@
             Form& operator=(const Form& rhs);
             ~Form();
 
-			const std::string getName() const;
-			const int getsignGrade() const;
-			const int getexecuteGrade() const;
-			bool getisSigned() const;
+			const std::string& getName() const;
+			const int getSignGrade() const;
+			const int getExecuteGrade() const;
+			bool getIsSigned() const;
 
 			void beSigned(const Bureaucrat& bureaucrat);
 
