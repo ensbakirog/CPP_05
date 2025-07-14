@@ -1,6 +1,5 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
-#include <cstdlib>
 
 int main()
 {
@@ -59,9 +58,9 @@ int main()
         Bureaucrat mid("Mid", 75);
         std::cout << mid << std::endl;
         mid.increment();
-        std::cout << "After increment: " << mid << std::endl;
+        std::cout << mid << std::endl;
         mid.decrement();
-        std::cout << "After decrement: " << mid << std::endl;
+        std::cout << mid << std::endl;
     }
     catch (std::exception& e)
     {
@@ -74,13 +73,13 @@ int main()
         std::cout << "Test 5: Copy constructor and assignment operator" << std::endl;
         Bureaucrat original("Original", 42);
         Bureaucrat copy(original);
-        std::cout << "Original: " << original << std::endl;
-        std::cout << "Copy: " << copy << std::endl;
+        std::cout << original << std::endl;
+        std::cout << copy << std::endl;
 
         Bureaucrat another("Another", 100);
         std::cout << "Another: " << another << std::endl;
         copy = another;
-        std::cout << "Copy after assignment: " << copy << std::endl;
+        std::cout << copy << std::endl;
     }
     catch (std::exception& e)
     {
@@ -94,7 +93,7 @@ int main()
         Bureaucrat b("Border", 149);
         std::cout << b << std::endl;
         b.decrement();
-        std::cout << "After decrement: " << b << std::endl;
+        std::cout << b << std::endl;
         b.decrement();
     }
     catch (std::exception& e)
@@ -102,5 +101,5 @@ int main()
         std::cout << e.what() << std::endl;
     }
 
-    return EXIT_SUCCESS;
+    return 0;
 }
