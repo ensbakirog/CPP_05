@@ -14,14 +14,14 @@
 			const int signGrade;
 			const int executeGrade;
 		public:
-			Form(const std::string& name, const int& signGrade, const int& executeGrade);
+			Form(const std::string& name, const int signGrade, const int executeGrade);
             Form(const Form& other);
             Form& operator=(const Form& rhs);
             ~Form();
 
 			const std::string& getName() const;
-			const int getSignGrade() const;
-			const int getExecuteGrade() const;
+			int getSignGrade() const;
+			int getExecuteGrade() const;
 			bool getIsSigned() const;
 
 			void beSigned(const Bureaucrat& bureaucrat);

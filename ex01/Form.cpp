@@ -1,4 +1,5 @@
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 Form::Form(const std::string& name, const int signGrade, const int executeGrade) : name(name), isSigned(false), signGrade(signGrade), executeGrade(executeGrade)
 {
@@ -25,7 +26,7 @@ const std::string& Form::getName() const
     return (this->name);
 }
 
-const int Form::getSignGrade() const
+int Form::getSignGrade() const
 {
     return (this->signGrade);
 }
@@ -35,7 +36,7 @@ bool Form::getIsSigned() const
     return (this->isSigned);
 }
 
-const int Form::getExecuteGrade() const
+int Form::getExecuteGrade() const
 {
     return (this->executeGrade);
 }

@@ -13,7 +13,7 @@ int main()
     }
     catch (std::exception& e)
     {
-        std::cout << "Error: " << e.what() << std::endl;
+        std::cout << e.what() << std::endl;
     }
     std::cout << std::endl;
 
@@ -26,7 +26,7 @@ int main()
     }
     catch (std::exception& e)
     {
-        std::cout << "Error: " << e.what() << std::endl;
+        std::cout << e.what() << std::endl;
     }
     std::cout << std::endl;
 
@@ -37,7 +37,7 @@ int main()
     }
     catch (std::exception& e)
     {
-        std::cout << "Error: " << e.what() << std::endl;
+        std::cout << e.what() << std::endl;
     }
 
     std::cout << std::endl;
@@ -49,7 +49,7 @@ int main()
     }
     catch (std::exception& e)
     {
-        std::cout << "Error: " << e.what() << std::endl;
+        std::cout << e.what() << std::endl;
     }
     std::cout << std::endl;
 
@@ -65,7 +65,7 @@ int main()
     }
     catch (std::exception& e)
     {
-        std::cout << "Error: " << e.what() << std::endl;
+        std::cout << e.what() << std::endl;
     }
     std::cout << std::endl;
 
@@ -84,7 +84,7 @@ int main()
     }
     catch (std::exception& e)
     {
-        std::cout << "Error: " << e.what() << std::endl;
+        std::cout << e.what() << std::endl;
     }
     std::cout << std::endl;
 
@@ -99,7 +99,7 @@ int main()
     }
     catch (std::exception& e)
     {
-        std::cout << "Error: " << e.what() << std::endl;
+        std::cout << e.what() << std::endl;
     }
 
     return EXIT_SUCCESS;
