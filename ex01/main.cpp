@@ -13,7 +13,7 @@ int main() {
         std::cout << "\n=== Invalid Bureaucrat Creation ===" << std::endl;
         Bureaucrat invalid("Invalid", 0);
     } catch (std::exception& e) {
-        std::cout << e.what() << std::endl;
+        std::cerr << e.what() << std::endl;
     }
 
     try {
@@ -24,7 +24,7 @@ int main() {
         std::cout << "\n=== Invalid Form Creation ===" << std::endl;
         Form f2("Form2", 0, 10);
     } catch (std::exception& e) {
-        std::cout << e.what() << std::endl;
+        std::cerr << e.what() << std::endl;
     }
 
     try {
@@ -42,7 +42,7 @@ int main() {
         bob.signForm(formB);
         std::cout << formB << std::endl;
     } catch (std::exception& e) {
-        std::cout << e.what() << std::endl;
+        std::cerr << e.what() << std::endl;
     }
 
     try {
@@ -50,14 +50,14 @@ int main() {
         Bureaucrat top("Top", 1);
         top.increment();
     } catch (std::exception& e) {
-        std::cout << e.what() << std::endl;
+        std::cerr << e.what() << std::endl;
     }
 
     try {
         Bureaucrat bottom("Bottom", 150);
         bottom.decrement();
     } catch (std::exception& e) {
-        std::cout << e.what() << std::endl;
+        std::cerr << e.what() << std::endl;
     }
 
     return 0;
