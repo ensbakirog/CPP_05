@@ -18,13 +18,13 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& r
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
-void RobotomyRequestForm::execute(Bureaucrat const & bureaucrat) const
+void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
     if (this->getIsSigned() == false)
         throw AForm::FormNotSignedException();
 
-    if (bureaucrat.getGrade() > this->getExecuteGrade())
-        throw AForm::GradeTooLowException();
+    if (executor.getGrade() > this->getExecuteGrade())
+        throw AForm::GradeTooHighException();
 
     std::cout << "* drilling noises *" << std::endl;
 

@@ -3,36 +3,27 @@
 #include <fstream>
 #include <iostream>
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target)
-    : AForm("ShrubberyCreationForm", 145, 137), target(target)
-{
-}
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target) : AForm("ShrubberyCreationForm", 145, 137), target(target) {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
-    : AForm(other), target(other.target)
-{
-}
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) : AForm(other), target(other.target) {}
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& rhs)
 {
     if (this != &rhs)
-    {
         AForm::operator=(rhs);
-        // target is const, so we can't reassign it
-    }
+
     return *this;
 }
 
-ShrubberyCreationForm::~ShrubberyCreationForm()
-{
-}
+ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
-void ShrubberyCreationForm::execute(Bureaucrat const & bureaucrat) const
+void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-    if (!this->getIsSigned())
+    if (this->getIsSigned() == false)
         throw AForm::FormNotSignedException();
-    if (bureaucrat.getGrade() > this->getGradeToExecute())
-        throw AForm::GradeTooLowException();
+
+    if (executor.getGrade() > this->getExecuteGrade())
+        throw AForm::GradeTooHighException();
 
     std::string filename = this->target + "_shrubbery";
     std::ofstream file(filename.c_str());
@@ -43,26 +34,8 @@ void ShrubberyCreationForm::execute(Bureaucrat const & bureaucrat) const
         return;
     }
 
-    file << "       _-_" << std::endl;
-    file << "    /~~   ~~\\" << std::endl;
-    file << " /~~         ~~\\" << std::endl;
-    file << "{               }" << std::endl;
-    file << " \\  _-     -_  /" << std::endl;
-    file << "   ~  \\\\ //  ~" << std::endl;
-    file << "_- -   | | _- _" << std::endl;
-    file << "  _ -  | |   -_" << std::endl;
-    file << "      // \\\\" << std::endl;
-    file << std::endl;
-    file << "      /\\_/\\" << std::endl;
-    file << "     /     \\" << std::endl;
-    file << "    /  ^ ^  \\" << std::endl;
-    file << "   |  (o o)  |" << std::endl;
-    file << "    \\   <>  /" << std::endl;
-    file << "     \\ --- /" << std::endl;
-    file << "      \\___/" << std::endl;
-    file << "        |" << std::endl;
-    file << "     ___| |___" << std::endl;
-
+    file << SHRUBBERY_TREE;
+    
     file.close();
 }
 

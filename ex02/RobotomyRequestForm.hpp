@@ -16,7 +16,7 @@
         RobotomyRequestForm& operator=(const RobotomyRequestForm& rhs);
         ~RobotomyRequestForm();
 
-        void execute(Bureaucrat const & bureaucrat) const;
+        void execute(Bureaucrat const & executor) const;
         const std::string& getTarget() const;
     };
 
