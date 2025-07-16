@@ -1,94 +1,25 @@
 #include "Bureaucrat.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
+#include "AForm.hpp"
 #include <iostream>
 
 int main()
 {
-    Bureaucrat high("High", 1);
-    Bureaucrat low("Low", 150);
+    Intern intern;
+    Bureaucrat boss("Boss", 1);
 
-    ShrubberyCreationForm shrub("garden");
-    RobotomyRequestForm robo("Bender");
-    PresidentialPardonForm pardon("Arthur Dent");
-
-    try
-    {
-        std::cout << shrub << std::endl;
-
-        shrub.execute(high);
-    }
-    catch (std::exception& e)
-    {
-        std::cerr << e.what() << std::endl;
-        std::cout << shrub << std::endl;
+    AForm* form = intern.makeForm("robotomy request", "Bender");
+    if (form) {
+        boss.signForm(*form);
+        boss.executeForm(*form);
+        delete form;
     }
 
     std::cout << std::endl;
 
-    try
-    {
-        std::cout << shrub << std::endl;
+    AForm* wrong = intern.makeForm("unknown form", "Nobody");
+    if (wrong)
+        delete wrong;
 
-        low.signForm(shrub);
-    }
-    catch (std::exception& e)
-    {
-        std::cerr << e.what() << std::endl;
-        std::cout << shrub << std::endl;
-    }
-
-    std::cout << std::endl;
-
-    try
-    {
-        std::cout << shrub << std::endl;
-
-        high.signForm(shrub);
-
-        std::cout << shrub << std::endl;
-
-        shrub.execute(low);
-    }
-    catch (std::exception& e)
-    {
-        std::cerr << e.what() << std::endl;
-    }
-
-    std::cout << std::endl;
-
-    try
-    {
-        std::cout << robo << std::endl;
-
-        high.signForm(robo);
-
-        std::cout << robo << std::endl;
-
-        robo.execute(high);
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << std::endl;
-    }
-    
-    std::cout << std::endl;
-
-    try
-    {
-        std::cout << pardon << std::endl;
-
-        high.signForm(pardon);
-
-        std::cout << pardon << std::endl;
-
-        pardon.execute(high);
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << std::endl;
-    }
-    
     return 0;
 }
